@@ -1,24 +1,15 @@
 <p id="notice"><%= notice %></p>
+  
 
-<table>
-  <tr>
-    <th>Track name</th>
-    <th>Description</th>
-    <th>User</th>
-    <th>Artwork</th>
-    <th></th>
-  </tr>
-
-  <tr>
-    <td><%= @track.name %></td>
-    <td><%= @track.description %> </td>
-    <td><%= @track.user_id %></td>
-    <td><%= @track.artwork_file %></td>
-  </tr>
-</table>
+    Track name: <%= @track.name %>
+    Description: <%= @track.description %> 
+    User: <%= @track.user_id %>
+    Artwork: <%= @track.artwork_file %>
+    Track: <%= audio_tag @track.music_file.url, autoplay: true, controls: true %>
+</p>
 
 <%= link_to 'Edit', edit_track_path(@track) %> |
 <%= link_to 'Back', tracks_path %>
-<table>
+
 
 
