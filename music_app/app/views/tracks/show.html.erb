@@ -1,20 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Track name:</b>
-  <%= @track.name %>
-</p>
+<table>
+  <tr>
+    <th>Track name</th>
+    <th>Description</th>
+    <th>User</th>
+    <th>Artwork</th>
+    <th></th>
+  </tr>
 
-<p>
-  <b>Description:</b>
-  <%= @track.description %>
-</p>
-
-<p>
-  <b>User</b>
-  <%= @track.user_id %>
-</p>
-
+  <tr>
+    <td><%= @track.name %></td>
+    <td><%= @track.description %> </td>
+    <td><%= @track.user_id %></td>
+    <td><%= @track.artwork_file %></td>
+  </tr>
+</table>
 
 <%= link_to 'Edit', edit_track_path(@track) %> |
 <%= link_to 'Back', tracks_path %>
+<table>
+
+
