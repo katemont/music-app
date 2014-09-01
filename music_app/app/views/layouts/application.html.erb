@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <h1>As yet unnamed music app</h1>
+
   <% flash.each do |name, msg| %>
      <div class="flash-message flash-message-<%= name %>">
        <%= msg %>
@@ -15,9 +17,9 @@
    <% end %>
 
    <% if current_user %>
-     <p>hello <%= current_user.email %></p>
+     <p>What up, <%= current_user.name %>?</p>
      <p>
-     <%= link_to 'Log out!', '/logout' %>
+     <%= link_to 'I\'m outta here!', '/logout' %>
      </p>
    <% else %>
    <p>
