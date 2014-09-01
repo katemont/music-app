@@ -29,22 +29,18 @@ class TracksController < ApplicationController
   def update
     @track = Track.find(params[:id])
 
-    respond_to do |format|
       if @track.update_attributes(params[:track])
       redirect_to @track, notice: 'Track successfully updated.'
       else
         render action: "edit" 
-      end
-    end
+      end    
   end
 
   def destroy
     @track = Track.find(params[:id])
     @track.destroy
 
-    respond_to do |format|
     redirect_to tracks_url 
-    end
-  end
 
+  end
 end
