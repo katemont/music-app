@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  attr_accessible :commentable, :body, :user_id
+
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
   validates :body, :presence => true
@@ -6,7 +8,7 @@ class Comment < ActiveRecord::Base
 
   # NOTE: install the acts_as_votable plugin if you
   # want user to vote on the quality of comments.
-  acts_as_votable
+  # acts_as_votable
 
   belongs_to :commentable, :polymorphic => true
 

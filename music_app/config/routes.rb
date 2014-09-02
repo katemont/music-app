@@ -1,4 +1,5 @@
 MusicApp::Application.routes.draw do
+ 
   get "sessions/new"
 
   get "sessions/create"
@@ -10,7 +11,10 @@ MusicApp::Application.routes.draw do
    root to: 'users#index'
    resources :users
    resources :sessions
-   resources :tracks
-   resources :comments
+   resources :tracks do
+     resources :comments
+   end
+   
+
    
 end

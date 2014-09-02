@@ -4,5 +4,5 @@ class Track < ActiveRecord::Base
   mount_uploader :music_file, MusicFileUploader
   belongs_to :user
   acts_as_commentable
-  acts_as_votable
+  
 end
