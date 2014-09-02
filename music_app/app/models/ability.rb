@@ -6,6 +6,8 @@
       
       if user.role? :admin
         can :manage, :all
+        can :read, User
+        can :update, User
       else
         can :read, :all
         can :create, Comment
