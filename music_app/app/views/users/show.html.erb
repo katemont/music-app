@@ -18,9 +18,11 @@
 <p>Last updated: <%= time_ago_in_words(@user.updated_at) %> ago
   </p>
 
+<p>Your music:</p>
   <%= @user.tracks.each do |track| %>
   <%= track.name %>
   <% end %>
-
+<br>
+<%= link_to 'Tracks', tracks_path %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
