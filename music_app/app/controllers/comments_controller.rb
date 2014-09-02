@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+  load_and_authorize_resource
   def create
     @track = Track.find(params[:track_id])
     @comment = Comment.build_from(@track, current_user.id, params[:comment][:body] )

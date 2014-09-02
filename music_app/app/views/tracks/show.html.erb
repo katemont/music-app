@@ -9,6 +9,7 @@
     </div>
     Last updated: <%= time_ago_in_words(@track.updated_at) %> ago<br>
     <%= render @comments %>
+  
     <h3>Add a comment:</h3>
     <%= form_for([@track, @comment]) do |f| %>
       <div class="field">
@@ -20,9 +21,14 @@
       </div>
     <% end %>
    
+    <% if can? :update, comment %>
+      <%= link_to "Edit", edit_comment_path(comment) %>
+    <% end %>
+    <% if can? :destroy, comment %>
+      | <%= link_to "Destroy", comment, :method => :delete, :confirm => "Are you sure?" %>
+    <% end %>
 
-<%= link_to 'Edit', edit_track_path(@track) %> |
-<%= link_to 'Back', tracks_path %>
+    <%= link_to 'Back', tracks_path %>
 
 
 

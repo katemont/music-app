@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-
+  load_and_authorize_resource
   def index
     @tracks = Track.all
   end
