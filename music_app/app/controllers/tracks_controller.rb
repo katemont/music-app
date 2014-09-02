@@ -17,13 +17,13 @@ class TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(params[:track])
-
-      if @track.save
-         redirect_to @track, notice: 'Track successfully created.'
-      else
-        render action: "new" 
-      end
+    current_user.tracks.create(params[:track])
+      # if @track.save
+      #    redirect_to @track, notice: 'Track successfully created.'
+      # else
+      #   render action: "new" 
+      # end
+      redirect_to tracks_path
   end
 
   def update
