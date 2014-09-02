@@ -29,5 +29,9 @@
     <%= f.label :profile %>
     <%= f.text_field :profile %>
   </div>
+  <div>
+  <%= f.label :role %><br />
+  <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>

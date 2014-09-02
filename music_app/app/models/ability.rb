@@ -14,7 +14,7 @@
         can :update, Comment do |comment|
           comment.try(:user) == user
         end
-        if user.role?(:artist)
+      if user.role?(:artist)
           can :create, Track
           can :update, Track do |track|
             track.try(:user) == user

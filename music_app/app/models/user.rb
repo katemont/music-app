@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :email, :name, :profile, :password_confirmation, :password
+  attr_accessible :email, :name, :profile, :password_confirmation, :password, :role
 
   validates :password, presence: true, on: :create
   validates :email, presence: true
@@ -11,5 +11,12 @@ class User < ActiveRecord::Base
   end
 
   has_many :tracks
+  has_many :comments
   
+  ROLES = %w[artist listener]
+
+  def role_symbols
+     [role.to_sym]
+  end
+
 end
