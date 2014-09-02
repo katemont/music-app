@@ -1,0 +1,9 @@
+<tr>
+  <td><%= track.name %></td>
+  <td><%= track.description %></td>
+  <td><%= track.artwork_file %></td>
+  <td><%= track.user_id %></td>
+  <td><%= link_to 'Show', track %></td>
+  <td><%= link_to 'Edit', edit_track_path(track) %></td>
+  <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure you want to delete this track?' } %></td>
+</tr>

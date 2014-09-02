@@ -7,6 +7,7 @@ class TracksController < ApplicationController
   def show
     @track = Track.find(params[:id])
     @comment = Comment.new
+    @comments = @track.comment_threads
   end
 
   def new

@@ -5,8 +5,10 @@
     Description: <%= @track.description %> <br>
     User: <%= @track.user.name %><br>
     Artwork: <%= @track.artwork_file %><br>
-    Last updated: <%= time_ago_in_words(@track.updated_at) %> ago
+    Last updated: <%= time_ago_in_words(@track.updated_at) %> ago<br><br>
 
+    <%= render @comments %>
+    
     <h2>Add a comment:</h2>
     <%= form_for([@track, @comment]) do |f| %>
       <div class="field">
