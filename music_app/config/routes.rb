@@ -8,7 +8,7 @@ MusicApp::Application.routes.draw do
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
-   root to: 'users#index'
+   root to: 'tracks#index'
    resources :users
    resources :sessions
    resources :tracks do

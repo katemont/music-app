@@ -10,6 +10,7 @@
         can :update, User
       else
         can :read, :all
+        can :create, User
         can :create, Comment
         can :update, Comment do |comment|
           comment.try(:user) == user
