@@ -47,4 +47,14 @@ class Comment < ActiveRecord::Base
   def self.find_commentable(commentable_str, commentable_id)
     commentable_str.constantize.find(commentable_id)
   end
+
+  def self.by_votes
+    select('comments.*, coalesce(value, 0) as votes').
+    joins('left join comments_votes on comment_id=comments.id').
+    order('votes desc')
+  end
+
+  def votes
+    read_attribute(:votes) || comment_votes.sum(:value)
+  end
 end

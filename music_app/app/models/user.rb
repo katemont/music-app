@@ -20,4 +20,12 @@ class User < ActiveRecord::Base
      [role.to_sym]
   end
 
+  # def total_votes
+  #   CommentVote.joins(:comment).where(comments: {user_id: self.id}).sum('value')
+  # end
+
+  def can_vote_for?(comment)
+    comment_votes.build(value: 1, comment: comment).valid?
+  end
+
 end

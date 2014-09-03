@@ -12,9 +12,10 @@ MusicApp::Application.routes.draw do
    resources :users
    resources :sessions
    resources :tracks do
-     resources :comments
-   end
-   
+     resources :comments do
+      resources :votes
+      end
+    end
 
    
 end
