@@ -6,4 +6,7 @@ class Track < ActiveRecord::Base
   belongs_to :user
   acts_as_commentable
   
+  validates :name, presence: true
+  validates :music_file, presence: true
+  
 end

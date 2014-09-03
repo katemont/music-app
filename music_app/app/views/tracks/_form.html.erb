@@ -1,33 +1,35 @@
-<%= form_for(@track) do |f| %>
-  <% if @track.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@track.errors.count, "error") %> prohibited this track from being saved:</h2>
+<div class="container">
+      <%= form_for(@track) do |f| %>
+      <% if @track.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@track.errors.count, "error") %> prohibited this track from being saved:</h2>
+        <ul>
+        <% @track.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
 
-      <ul>
-      <% @track.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <%= f.label :music_file %><br />
+      <%= f.file_field :music_file %>
+    </div>
+      <div class="field">
+          <%= f.label :artwork_file %><br />
+          <%= f.file_field :artwork_file  %>
+      </div>
+    <div class="actions">
+      <%= submit_tag "Submit" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :music_file %><br />
-    <%= f.file_field :music_file %>
-  </div>
-    <div class="field">
-        <%= f.label :artwork_file %><br />
-        <%= f.file_field :artwork_file  %>
-    </div>
-  <div class="actions">
-    <%= submit_tag "Submit" %>
-  </div>
-<% end %>
+</div>
