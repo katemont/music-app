@@ -6,13 +6,8 @@ class Comment < ActiveRecord::Base
   validates :body, :presence => true
   validates :user, :presence => true
 
-  # NOTE: install the acts_as_votable plugin if you
-  # want user to vote on the quality of comments.
-  # acts_as_votable
-
   belongs_to :commentable, :polymorphic => true
-
-  # NOTE: Comments belong to a user
+  has_many :flags
   belongs_to :user
 
   # Helper class method that allows you to build a comment
@@ -48,13 +43,10 @@ class Comment < ActiveRecord::Base
     commentable_str.constantize.find(commentable_id)
   end
 
-  def self.by_votes
-    select('comments.*, coalesce(value, 0) as votes').
-    joins('left join comments_votes on comment_id=comments.id').
-    order('votes desc')
+  def amount_of_flags
+    self.flags.select do |flag|
+      flag.value == true
+    end.count
   end
-
-  def votes
-    read_attribute(:votes) || comment_votes.sum(:value)
-  end
+  
 end

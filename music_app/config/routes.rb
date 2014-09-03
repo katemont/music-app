@@ -8,14 +8,17 @@ MusicApp::Application.routes.draw do
 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
-   root to: 'tracks#index'
-   resources :users
-   resources :sessions
-   resources :tracks do
-     resources :comments do
-      resources :votes
-      end
+  root to: 'tracks#index'
+  resources :users
+  resources :sessions
+  resources :tracks do
+    resources :comments do
+      post "flags", to: 'flags#create', as: 'flag'
     end
+  
+  end
+
+end
 
    
-end
+
