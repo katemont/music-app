@@ -16,8 +16,8 @@
   color: white;
 
   background-position: left bottom;
-  background-size: contain;
-  height: 200px;
+  background-size: cover;
+  height: 350px;
   padding: 10px;
 }
 
@@ -26,5 +26,5 @@
 }
 
 .profile.theme-two h1 {
-  background-image: url(/assets/background_images/background.jpg);
+  background-image: url(/assets/background_images/houses.jpg);
 }
