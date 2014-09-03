@@ -20,6 +20,7 @@
           can :update, Track do |track|
             track.try(:user) == user
           end
+          
         end
       end
     end
