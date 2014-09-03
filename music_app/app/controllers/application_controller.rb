@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Access denied - sorry about that."
+    flash[:error] = "You don't have permission to access that, I'm afraid - sorry about that."
     redirect_to root_url
   end
 
