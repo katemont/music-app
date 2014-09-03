@@ -4,7 +4,9 @@
   <b>Name:</b>
   <%= @user.name %>
 </p>
-
+  <b>Role:</b>
+  <%= @user.role %>
+</p>
 <p>
   <b>Email:</b>
   <%= @user.email %>
@@ -15,14 +17,15 @@
   <%= @user.password_digest %>
 </p>
 
-<p>Last updated: <%= time_ago_in_words(@user.updated_at) %> ago
-  </p>
-
 <p>Your music:</p>
   <%= @user.tracks.each do |track| %>
   <%= track.name %>
   <% end %>
 <br>
+
+<p>Last updated: <%= time_ago_in_words(@user.updated_at) %> ago
+  </p>
+
 <%= link_to 'Tracks', tracks_path %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
