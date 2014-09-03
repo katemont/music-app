@@ -9,8 +9,8 @@
   |<%= link_to 'Delete this comment', [@track, comment], method: :delete %> 
 <% end %>
 
-| <%= pluralize comment.flags.count, "flag" %>
+| <%= pluralize comment.flags.count, "Flag" %>
 <% if current_user && can?(:create, Flag) %>
-  | <%= link_to "flag", track_comment_flag_path(@track, comment), method: "post" %>
+  | <%= link_to "Flag", track_comment_flag_path(@track, comment), method: "post" %>
 
 <% end %>

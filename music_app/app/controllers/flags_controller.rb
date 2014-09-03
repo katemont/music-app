@@ -11,5 +11,5 @@ class FlagsController < ApplicationController
     @track = Track.find(params[:track_id])
     redirect_to @track
   end
-
+  
 end
