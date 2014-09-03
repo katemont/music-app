@@ -2,26 +2,29 @@
     include CanCan::Ability
     
     def initialize(user)
-      user ||= User.new # guest user
-      
-      if user.role? :admin
-        can :manage, :all
-        can :read, User
-        can :update, User
-      else
-        can :read, :all
-        can :create, User
+      user ||= User.new
+
+      case 
+      when user.role?(:listener)
+        can :read, Track
         can :create, Comment
-        can :update, Comment do |comment|
-          comment.try(:user) == user
+        can :update, Comment, user_id: user.id
+        
+
+      when user.role?(:artist)
+        can :create, Track
+        can :update, Track, user_id: user.id
+        can :read, Track
+        can :create, Comment
+        can :update, Comment, user_id: user.id
+
+      when user.role?(:admin)
+        can :manage, :all
+        
+        else
+          can :read, Track
+          can :create, User
         end
-      if user.role?(:artist)
-          can :create, Track
-          can :update, Track do |track|
-            track.try(:user) == user
-          end
-          
-        end
+
       end
-    end
-  end
+   end   
