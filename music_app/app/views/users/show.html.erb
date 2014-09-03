@@ -11,14 +11,9 @@
     <%= @user.email %>
   </p>
 
-  <p>
-    <b>Password digest:</b>
-    <%= @user.password_digest %>
-  </p>
-
   <p>Your music:</p>
-    <%= @user.tracks.each do |track| %>
-    <%= track.name %>
+    <% @user.tracks.each do |track| %>
+    <ul><li><%= track.name %></li></ul>
     <% end %>
   <br>
 
