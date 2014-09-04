@@ -26,7 +26,7 @@
       else
         can :read, Track
         can :create, User
-        
+
       end
 
       end
