@@ -2,21 +2,18 @@
   <div class="container">
     <h3><%= @track.user.name %>'s tracks</h3><br>
    <ul class="list-inline">
-   
-   <h4><b>Track name: </b><%= @track.name %> 
-    <li><b>Description: </b><%= @track.description %></li></h4><br>
       <li><%= link_to image_tag(@track.artwork_file.thumb.url), @track.artwork_file.detail.url %></li>
       <br>
+      <h4><li><b>Track name: </b><%= @track.name %></li> 
+       <li><b>Description: </b><%= @track.description %></li></h4><br>
     <div class = "media">
       <%= audio_tag @track.music_file.url, controls: true %>
     </div>
   <% if can? :update, Track %>
   <li><%= link_to "Edit", edit_track_path %></li>
   <% end %> </ul> 
-    <b>Last updated: </b><%= time_ago_in_words(@track.updated_at) %> ago<br>
+    <b>Last updated: </b><%= time_ago_in_words(@track.updated_at) %> ago<br><br>
 
-    <%= render @comments %>
-  
     <h3>Add a comment:</h3>
     <%= form_for [@track, @comment], html: {role: "form"} do |f| %>
       <div class="form-group">
@@ -27,6 +24,10 @@
         <%= f.submit class: "btn btn-primary pull-right" %>
       </div><br>
     <% end %>
+
+    <%= render @comments %>
+  
+   
 
 <%= link_to 'Back', tracks_path %>
 

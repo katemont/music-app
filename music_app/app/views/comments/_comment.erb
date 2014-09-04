@@ -1,5 +1,5 @@
-<br><br><br><em><%= comment.body %></em><br>
-- <i><%= comment.user.name %> &nbsp;&middot;&nbsp; <br><%= time_ago_in_words(comment.created_at) %></i>
+<br><em><%= comment.body %></em><br>
+- <i><%= comment.user.name %> &nbsp;&middot;&nbsp; <br><%= time_ago_in_words(comment.created_at) %></i><br>
 
 
 <% if can? :update, comment %>
@@ -8,7 +8,6 @@
 <% if can? :destroy, comment %>
   |<%= link_to 'Delete this comment', [@track, comment], method: :delete %> 
 <% end %>
-
 
 | <%= pluralize comment.flags.count, "Flag" %>
 <% if current_user && can?(:create, Flag) %>
