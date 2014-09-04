@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
   
     <h3><%= @track.user.name %>'s tracks</h3><br>
-    Track name: <%= @track.name %> <br>
-    Description: <%= @track.description %> <br>
-      <%= link_to image_tag(@track.artwork_file.thumb.url), @track.artwork_file.detail.url %>
+   <ul class="list-inline">
+   
+   <b>Track name: </b><%= @track.name %> 
+    <li><b>Description: </b><%= @track.description %></li><br><br>
+      <li><%= link_to image_tag(@track.artwork_file.thumb.url), @track.artwork_file.detail.url %></li>
       <br>
     <div class = "media">
       <%= audio_tag @track.music_file.url, controls: true %>
     </div>
-    Last updated: <%= time_ago_in_words(@track.updated_at) %> ago<br>
+  </ul> 
+    <b>Last updated: </b><%= time_ago_in_words(@track.updated_at) %> ago<br>
 
     <%= render @comments %>
   
