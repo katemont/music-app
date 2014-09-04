@@ -16,17 +16,11 @@
   </table>
 
   <br>
-  <p>
-    <b>Role:</b>
-    <%= @user.role %>
-  </p>
-  <p>
-    <b>Email:</b>
-    <%= @user.email %>
-  </p>
-
-  <p>Last updated: <%= time_ago_in_words(@user.updated_at) %> ago
-    </p>
+  <ul class="list-inline">
+    <li><b>Role: </b><%= @user.role %></li>
+    <li><b>Email: </b><%= @user.email %></li>
+    <li><b>Last updated: </b><%= time_ago_in_words(@user.updated_at) %> ago</li>
+  </ul>
 
   <%= link_to 'Tracks', tracks_path %> |
   <%= link_to 'Edit', edit_user_path(@user) %> |
