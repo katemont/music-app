@@ -13,6 +13,10 @@
   </ul> 
     <b>Last updated: </b><%= time_ago_in_words(@track.updated_at) %> ago<br>
 
+    <% if can? :update, Track %>
+    <li><%= link_to "Edit", edit_track_path %></li>
+    <% end %> 
+
     <%= render @comments %>
   
     <h3>Add a comment:</h3>

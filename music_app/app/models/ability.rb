@@ -14,7 +14,7 @@
         can :read, User, id: user.id
 
       when user.role?(:artist)
-        can :create, Track
+        can :create, Track, user_id: user.id
         can :update, Track, user_id: user.id
         can :read, Track
         can :create, Comment
