@@ -3,6 +3,7 @@
 <section class="profile theme-two">
   <h1 style="background-image: url('/assets/background_images/<%= image_header(@user) %>');"><%= @user.name %></h1>
 
+  <% if can? :update, Track, id: @user.id %>  
   <h3><%= @user.name %>'s tracks</h3>
 
   <table class="table">
@@ -13,7 +14,9 @@
     </tr>
 
   <%= render @tracks %>
+ <% end %> 
   </table>
+  
 
   <br>
   <ul class="list-inline">
