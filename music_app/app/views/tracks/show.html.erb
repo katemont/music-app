@@ -10,12 +10,10 @@
     <div class = "media">
       <%= audio_tag @track.music_file.url, controls: true %>
     </div>
-  </ul> 
+  <% if can? :update, Track %>
+  <li><%= link_to "Edit", edit_track_path %></li>
+  <% end %> </ul> 
     <b>Last updated: </b><%= time_ago_in_words(@track.updated_at) %> ago<br>
-
-    <% if can? :update, Track %>
-    <li><%= link_to "Edit", edit_track_path %></li>
-    <% end %> 
 
     <%= render @comments %>
   
