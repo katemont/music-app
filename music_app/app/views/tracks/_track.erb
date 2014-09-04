@@ -1,6 +1,7 @@
 <tr>
   <td><%= track.name %></td>
   <td><%= track.description %></td>
+  <td><%= track.user.name %></td>
   <td><%= link_to 'Show', track %></td>
 
   <% if can? :update, @track %>
