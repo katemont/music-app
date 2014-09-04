@@ -37,10 +37,9 @@
       <%= f.text_field :profile %>
     </div>
     <div>
-    <% if current_user.present? && current_user.role != "admin" %>
-      <%= f.label :role %><br />
+    <div class="field">
+      <%= f.label :role %>
       <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
-    <% end %> 
     </div>
     <div class="actions"><%= submit_tag "Create account", class: "btn btn-primary" %></div>
   <% end %>
