@@ -8,21 +8,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @track = Track.find(params[:track_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to track_url 
+    redirect_to @track
   end
 
-  def index
-    @comments = Comment.by_votes
-  end
+  
 
-  def vote
-    vote = current_user.comment_votes.new(value: params[:value], comment_id: params[:id])
-    if vote.save
-      redirect_to :back, notice: "Thank you for voting."
-    else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
-    end
-  end
+  
 end

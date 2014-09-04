@@ -21,6 +21,7 @@
 
       when user.role?(:admin)
         can :manage, :all
+        cannot :create, Flag
       
       else
         can :read, Track

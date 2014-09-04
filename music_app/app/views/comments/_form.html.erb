@@ -1,9 +1,11 @@
 <h2>Add a comment:</h2>
+
 <%= form_for([@track, @.comments.build]) do |f| %>
-  <div class="field">
+
+    <div class="field">
     <%= f.label :commenter %><br />
     <%= f.text_field :commenter %>
-  </div>
+    </div>
   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_field :body %>
