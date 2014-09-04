@@ -1,5 +1,5 @@
 <div class="container">
-<h3>Log in</h3>
+<h3>Hello! Log in here</h3><br>
 
 <%= form_tag sessions_path do %>
 
@@ -9,10 +9,10 @@
   </div>
   <div class="form-group">
     <%= label_tag :password %><br>
-    <%= password_field_tag :password %>
+    <%= password_field_tag :password, params[:password], class: "form-control", placeholder: "password" %>
   </div>
   <div class="actions">
-    <%= submit_tag "Log in", class: "btn btn-primary" %>
+    <%= submit_tag "Log in", class: "btn btn-primary pull-right" %>
   </div>
 
 <% end %>
