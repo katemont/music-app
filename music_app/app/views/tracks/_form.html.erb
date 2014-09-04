@@ -12,19 +12,19 @@
     <% end %>
     
 
-    <div class="field">
+    <div class="form-group">
       <%= f.label :name %><br />
-      <%= f.text_field :name %>
+      <%= f.text_field :name,  class: "form-control", placeholder: "Track name" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :description %><br />
-      <%= f.text_field :description %>
+      <%= f.text_field :description, class: "form-control", placeholder: "Description" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :music_file %><br />
       <%= f.file_field :music_file %>
     </div>
-      <div class="field">
+      <div class="form-group">
       <%= f.label :artwork_file %><br />
       <%= f.file_field :artwork_file  %>
       </div><br>
