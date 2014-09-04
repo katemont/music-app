@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @tracks = @user.tracks
   end
 
   def new
@@ -29,12 +30,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    respond_to do |format|
-      if @user.update_attributes(params[:user])
+    if @user.update_attributes(params[:user])
       redirect_to @user, notice: 'User was successfully updated.'
-      else
-        render action: "edit" 
-      end
+    else
+      render action: "edit" 
     end
   end
 

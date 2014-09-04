@@ -30,6 +30,17 @@
 }
 
 .profile.theme-three h1 {
-  background-image: url(/asset    s/background_images/urban.jpg);
+  background-image: url(/assets/background_images/urban.jpg);
 }
 
+footer {
+  min-height: 100px;
+  width: 100%;
+  background-color: #e7e7e7;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+audio {
+  width: 100%;
+}

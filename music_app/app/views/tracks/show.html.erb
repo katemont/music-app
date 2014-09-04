@@ -13,18 +13,17 @@
     <%= render @comments %>
   
     <h3>Add a comment:</h3>
-    <%= form_for([@track, @comment]) do |f| %>
-      <div class="field">
-  
-        <%= f.text_field :body %>
+    <%= form_for [@track, @comment], html: {role: "form"} do |f| %>
+      <div class="form-group">
+        <!-- <label for="body">Body</label> -->
+        <%= f.text_area :body, rows: "5",  class: "form-control", placeholder: "Enter comment" %>
       </div>
       <div class="actions">
-        <%= f.submit %>
+        <%= f.submit class: "btn btn-primary pull-right" %>
       </div>
     <% end %>
-   
-    
-    <%= link_to 'Back', tracks_path %>
+
+<%= link_to 'Back', tracks_path %>
 
 
 

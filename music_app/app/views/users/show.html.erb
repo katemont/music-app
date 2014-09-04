@@ -1,7 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <section class="profile theme-two">
-  <h1><%= @user.name %></h1>
+  <h1 style="background-image: url('/assets/background_images/<%= image_header(@user) %>');"><%= @user.name %></h1>
+
+  <h3><%= @user.name %>'s tracks</h3>
+
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th colspan="4">Description</th>
+    
+    </tr>
+
+  <%= render @tracks %>
+  </table>
+
+  <br>
   <p>
     <b>Role:</b>
     <%= @user.role %>
@@ -10,12 +24,6 @@
     <b>Email:</b>
     <%= @user.email %>
   </p>
-
-  <p>Your music:</p>
-    <% @user.tracks.each do |track| %>
-    <ul><li><%= track.name %></li></ul>
-    <% end %>
-  <br>
 
   <p>Last updated: <%= time_ago_in_words(@user.updated_at) %> ago
     </p>

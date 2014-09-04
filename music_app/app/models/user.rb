@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   
-  attr_accessible :email, :name, :profile, :password_confirmation, :password, :role
+  attr_accessible :email, :name, :profile, :password_confirmation, :password, :role, :background_image
 
   validates :password, presence: true, on: :create
   validates :email, presence: true
@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :comments
   
   ROLES = %w[artist listener]
+  IMAGES = Dir.entries("#{Rails.root}/app/assets/images/background_images/").map { |f| f if !File.directory?(f) }.compact!
 
   def role_symbols
      [role.to_sym]

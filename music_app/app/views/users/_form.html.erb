@@ -17,6 +17,10 @@
       <%= f.text_field :name %>
     </div>
     <div class="field">
+      <%= f.label :background_image %>
+      <%= f.collection_select :background_image, User::IMAGES, :to_s, :humanize %>
+    </div>
+    <div class="field">
       <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
@@ -33,8 +37,10 @@
       <%= f.text_field :profile %>
     </div>
     <div>
-    <%= f.label :role %><br />
-    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+    <% if current_user.present? && current_user.role != "admin" %>
+      <%= f.label :role %><br />
+      <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+    <% end %> 
     </div>
     <div class="actions"><%= submit_tag "Create account", class: "btn btn-primary" %></div>
   <% end %>

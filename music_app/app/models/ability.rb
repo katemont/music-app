@@ -10,6 +10,8 @@
         can :create, Comment
         can :update, Comment, user_id: user.id
         can :create, Flag
+        can :update, User, id: user.id
+        can :read, User, id: user.id
 
       when user.role?(:artist)
         can :create, Track
@@ -18,6 +20,8 @@
         can :create, Comment
         can :update, Comment, user_id: user.id
         can :create, Flag
+        can :update, User, id: user.id
+        can :read, User, id: user.id
 
       when user.role?(:admin)
         can :manage, :all
