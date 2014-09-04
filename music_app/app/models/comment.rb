@@ -43,10 +43,4 @@ class Comment < ActiveRecord::Base
     commentable_str.constantize.find(commentable_id)
   end
 
-  def amount_of_flags
-    self.flags.select do |flag|
-      flag.value == true
-    end.count
-  end
-  
 end
