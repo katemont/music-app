@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
-  
+  <div class="container">
     <h3><%= @track.user.name %>'s tracks</h3><br>
    <ul class="list-inline">
    
-   <b>Track name: </b><%= @track.name %> 
-    <li><b>Description: </b><%= @track.description %></li><br><br>
+   <h4><b>Track name: </b><%= @track.name %> 
+    <li><b>Description: </b><%= @track.description %></li></h4><br>
       <li><%= link_to image_tag(@track.artwork_file.thumb.url), @track.artwork_file.detail.url %></li>
       <br>
     <div class = "media">
@@ -28,5 +28,5 @@
 
 <%= link_to 'Back', tracks_path %>
 
-
+</div>
 

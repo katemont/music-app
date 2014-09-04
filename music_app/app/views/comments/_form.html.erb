@@ -1,9 +1,7 @@
-<h2>Add a comment:</h2>
-
+<br>
 <%= form_for([@track, @comment]) do |f| %>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_field :body %>
+  <div class="form-group">
+    <%= f.text_field :body, class: "form-control", placeholder: "Comment" %>
   </div><br>
   <div class="actions">
     <%= submit_tag "Edit comment", class: "btn btn-primary" %>
