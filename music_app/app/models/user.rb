@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   has_many :tracks
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
   ROLES = %w[artist listener]
   IMAGES = Dir.entries("#{Rails.root}/app/assets/images/background_images/").map { |f| f if !File.directory?(f) }.compact!
