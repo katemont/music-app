@@ -21,7 +21,8 @@
   padding: 10px;
 }
 
-.profile.theme-one h1 {
+/*no longer using this*/ 
+/*.profile.theme-one h1 {
   background-image: url(/assets/background_images/palm_trees.jpg);
 }
 
@@ -31,7 +32,7 @@
 
 .profile.theme-three h1 {
   background-image: url(/assets/background_images/urban.jpg);
-}
+}*/
 
 footer {
   min-height: 100px;

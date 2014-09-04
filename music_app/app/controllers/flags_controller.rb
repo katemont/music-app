@@ -6,6 +6,8 @@ class FlagsController < ApplicationController
 
     flag.save
     redirect_to @comment.commentable
+
+    flash[:notice] = "That flag did not save - perhaps you already flagged this comment for review" if !flag.save
   end
   
 end
