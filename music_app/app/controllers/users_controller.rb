@@ -41,8 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    respond_to do |format|
     redirect_to users_url 
-    end
+   
   end
 end
