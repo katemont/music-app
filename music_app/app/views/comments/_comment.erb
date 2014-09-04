@@ -3,7 +3,7 @@
 
 
 <% if can? :update, comment %>
-  <%= link_to "Edit", edit_track_comment_path(comment) %>
+  <%= link_to "Edit", edit_track_comment_path(@track, comment) %>
 <% end %>
 <% if can? :destroy, comment %>
   |<%= link_to 'Delete this comment', [@track, comment], method: :delete %> 

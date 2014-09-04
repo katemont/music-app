@@ -1,16 +1,11 @@
 <h2>Add a comment:</h2>
 
-<%= form_for([@track, @.comments.build]) do |f| %>
-
-    <div class="field">
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-    </div>
+<%= form_for([@track, @comment]) do |f| %>
   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_field :body %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag "Edit comment", class: "btn btn-primary" %>
   </div>
 <% end %>

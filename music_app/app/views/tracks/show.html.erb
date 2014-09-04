@@ -3,7 +3,8 @@
     <h3><%= @track.user.name %>'s tracks</h3><br>
     Track name: <%= @track.name %> <br>
     Description: <%= @track.description %> <br>
-      <%= image_tag @track.artwork_file.url %> <br>
+      <%= link_to image_tag(@track.artwork_file.thumb.url), @track.artwork_file.detail.url %>
+      <br>
     <div class = "media">
       <%= audio_tag @track.music_file.url, controls: true %>
     </div>
@@ -14,8 +15,8 @@
     <h3>Add a comment:</h3>
     <%= form_for([@track, @comment]) do |f| %>
       <div class="field">
-        <%= f.label :body %><br />
-        <%= f.text_area :body %>
+  
+        <%= f.text_field :body %>
       </div>
       <div class="actions">
         <%= f.submit %>
