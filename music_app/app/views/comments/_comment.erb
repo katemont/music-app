@@ -1,6 +1,5 @@
-<br><em><%= comment.body %></em><br>
-- <i><%= comment.user.name %> &nbsp;&middot;&nbsp; <br><%= time_ago_in_words(comment.created_at) %></i><br>
-
+<br><br><br><em><%= comment.body %></em><br>
+- <i><%= comment.user.name %> &nbsp;&middot;&nbsp; <%= time_ago_in_words(comment.created_at) %> ago</i><br><br>
 
 <% if can? :update, comment %>
   <%= link_to "Edit", edit_track_comment_path(@track, comment) %>
